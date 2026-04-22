@@ -122,7 +122,7 @@ def main():
         metrics = evaluate_model(clf, X_test, y_test)
 
         # Experiment tracking using dvclive
-        with Live(save_dvc_exp=False) as live:
+        with Live(save_dvc_exp=True) as live:
               y_pred = clf.predict(X_test)
               live.log_metric('accuracy', accuracy_score(y_test, y_pred))
               live.log_metric('precision', precision_score(y_test, y_pred))
